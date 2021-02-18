@@ -1,0 +1,31 @@
+<%- include('header'); -%>
+
+<main>
+	<div class="container-share">
+		<div><h1>Share</h1></div>
+		<div class="share-content">
+
+			<div>
+				<h2><%= share.symbol %></h2>
+				<h2><%= share.open %></h2>
+				<h2><%= share.high %></h2>
+				<h2><%= share.low %></h2>
+
+			</div>
+		</div>
+		<div class="share-edit-delete">
+			<div>
+				<form method="POST" action="/delete">
+					<div>
+						<input type="hidden" value="<%= share.id %>" name="shareId" />
+						<button>Delete</button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<a href="/edit-share/<%= share.id %>?edit=true">Edit</a>
+			</div>
+		</div>
+	</div>
+</main>
+<%- include('footer'); -%>

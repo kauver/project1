@@ -1,0 +1,34 @@
+<%- include('header'); -%>
+<div class="container-form">
+	<h1><% if(editing){ %>Edit Share<% } else { %>Add Share<% } %></h1>
+
+	<form method="POST" action="/<% if(editing){ %>edit-share<% } else { %>add-share<% } %>">
+		<div>
+			<label>symbol</label>
+			<input type="text" name="symbol" value="<% if(editing){ %><%= share.symbol %><% } %>" required />
+		</div>
+		<div>
+			<label>open</label>
+			<input type="text" name="open" value="<% if(editing){ %><%= share.open %><% } %>" required />
+		</div>
+		<div>
+			<label>high</label>
+			<textarea type="text" name="high" rows="10" cols="50" required ><% if(editing){ %><%= share.high %><% } %></textarea>
+		</div>
+		<div>
+			<label>low</label>
+			<textarea type="text" name="low" rows="10" cols="50" required ><% if(editing){ %><%= share.low %><% } %></textarea>
+		</div>
+		<% if(editing){ %>
+		<div>
+			<input type="hidden" name="shareId" value="<%= share.id %>" />
+		</div>
+		<% } %>
+		<div>
+			<button type="submit"><% if(editing){ %>Edit Share<% } else { %>Add Share<% } %></button>
+		</div>
+	</form>
+</div>
+		<%- include('footer'); -%>
+	</body>
+</html>
